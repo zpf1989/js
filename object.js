@@ -1,16 +1,172 @@
-//å¯¹è±¡
+//¶ÔÏó
 var book={
     'title':'javascript',
     'for':'all audiences',
     author:{
-        firstname:'david',//è¿™é‡Œçš„å±æ€§æ²¡æœ‰å¼•å·
+        firstname:'david',//ÕâÀïµÄÊôĞÔÃ»ÓĞÒıºÅ
         surname:'flanagan'
     }  
 };
 console.log(book);
 
-//åŸå‹
-//Object.prototypeï¼ˆnew Object()ï¼‰,Array.prototypeï¼ˆnew Array()ï¼‰,Date.prototypeï¼ˆDate.prototypeï¼‰
+//±ÜÃâÊôĞÔ·ÃÎÊ´íÎó
+var len=book&&book.subtitle&&book.subtitle.length;//»ñÈ¡book¶ÔÏósubtitleÊôĞÔ£¨²»´æÔÚ£©µÄ³¤¶È
+console.log(len);
+len=book&&book.title&&book.title.length;
+console.log(len);
+
+//Ô­ĞÍ
+//Object.prototype£¨new Object()£©,Array.prototype£¨new Array()£©,Date.prototype£¨Date.prototype£©
 console.log(Object.prototype);
 console.log(Array.prototype);
 console.log(Date.prototype);
+
+//ÊôĞÔ
+var author=book.author;
+console.log(author);
+console.log(book["title"]);
+book.for='zpf';
+book['title']='C#';
+console.log(book);
+
+//js¶ÔÏó¶¼ÊÇ¹ØÁªÊı×é£¨ÓÖÃûÉ¢ÁĞ¡¢Ó³Éä»ò×Öµä£©
+var person={
+    addr0:'¼ÃÄÏ',
+    addr1:'ºÊÔó',
+    addr2:'¼ÃÄş'
+};
+for(var i=0;i<3;i++){
+    console.log(person['addr'+i]);
+}
+
+//¼Ì³Ğ
+// inherit() returns a newly created object that inherits properties from the
+// prototype object p.  It uses the ECMAScript 5 function Object.create() if
+// it is defined, and otherwise falls back to an older technique.
+function inherit(p) {
+    if (p == null) throw TypeError(); // p must be a non-null object
+    if (Object.create)                // If Object.create() is defined...
+        return Object.create(p);      //    then just use it.
+    var t = typeof p;                 // Otherwise do some more type checking
+    if (t !== "object" && t !== "function") throw TypeError();
+    function f() {};                  // Define a dummy constructor function.
+    f.prototype = p;                  // Set its prototype property to p.
+    return new f();                   // Use f() to create an "heir" of p.
+}
+//¸¸¶ÔÏóºóÆÚ¶¯Ì¬Ìí¼ÓµÄÊôĞÔ£¬ÔÚ×Ó¶ÔÏóÖĞÒÀÈ»¼Ì³Ğ£»×Ó¶ÔÏóµÄÊôĞÔ¸³Öµ²Ù×÷²»»áÓ°ÏìÔ­ĞÍÁ´
+var o={x:1};//³õÊ¼ÊôĞÔx
+o.a=9;//¶¯Ì¬Ìí¼ÓµÄÊôĞÔa
+var p=inherit(o);
+p.y=2;
+o.b=90;//p¼Ì³ĞoÖ®ºó£¬oÓÖÌí¼ÓµÄÊôĞÔ£¬pÒÀÈ»¿ÉÒÔ·ÃÎÊ
+console.log('p:'+p);
+console.log('p:x,'+p.x+';a,'+p.a+';b,'+p.b);
+p.b=9;//¸²¸ÇÊôĞÔb£¬oµÄbÊôĞÔ²¢Ã»ÓĞ¸Ä±ä
+console.log('bµÄÖµ£¬p:'+p.b+',o:'+o.b);
+delete p.b;//É¾³ıÁËpµÄbÊôĞÔ£¬·ÃÎÊp.bÊ±½«´ÓÔ­ĞÍÁ´ÖĞ²éÕÒ£¨¼´o.b£©
+console.log('bµÄÖµ£¬p:'+p.b+',o:'+o.b);
+
+//É¾³ıÊôĞÔ
+//deleteÔËËã·ûÖ»ÄÜÉ¾³ı×ÔÓĞÊôĞÔ£¬²»ÄÜÉ¾³ı¼Ì³ĞÊôĞÔ£¨ÒªÉ¾³ıµÄ¼Ì³ĞÊôĞÔ±ØĞë´Ó¶¨ÒåÕâ¸öÊôĞÔµÄÔ­ĞÍ¶ÔÏóÉÏÉ¾³ıËü£¬¶øÕâ½«Ó°ÏìËùÓĞ¼Ì³Ğ×ÔÕâ¸öÔ­ĞÍµÄ¶ÔÏó£©
+delete o.x;
+console.log(p.x);//undefined
+//deleteÖ»ÄÜ¶Ï¿ªÊôĞÔºÍËŞÖ÷¶ÔÏóµÄÁªÏµ£¬¶ø²»»á²Ù×÷ÊôĞÔµÄÊôĞÔ£»
+//ÕâÓĞ¿ÉÄÜÔì³ÉÄÚ´æĞ¹Â©£¬ËùÒÔÏú»Ù¶ÔÏóÊ±£¬Òª±éÀúÊôĞÔµÄÊôĞÔ£¬ÒÀ´ÎÉ¾³ı
+var author=book.author;
+delete book.author;
+console.log(author);
+
+//¼ì²âÊôĞÔ
+var o={x:120};
+console.log('x' in o);//true
+console.log('toString' in o);//true(toStringÊôĞÔ¼Ì³Ğ×ÔObject)
+//¼ì²âÊÇ·ñÊÇ¶ÔÏóµÄ×ÔÓĞÊôĞÔ
+console.log(o.hasOwnProperty('x'));//true
+console.log(o.hasOwnProperty('toString'));//false
+
+//Ã¶¾ÙÊôĞÔ
+var o={x:1,y:89,z:8909};
+for(p in o){
+    console.log(p);//´òÓ¡ÊôĞÔÃû³Æ
+}
+
+//´æÈ¡Æ÷getter¡¢setter£¨¿ÉÒÔ¼Ì³Ğ£©
+var p={
+    x:1.0,
+    y:2.0,
+    //rÊÇ¿É¶ÁĞ´µÄ´æÈ¡Æ÷ÊôĞÔ£¨Í¬Ê±ÓĞgetterºÍsetter£©
+    get r() {
+        return Math.sqrt(this.x*this.x+this.y*this.y);
+    },
+    set r(newval) {
+        var oldval=this.r;
+        var ratio=newval/oldval;
+        this.x*=ratio;
+        this.y*=ratio;
+    },
+    //thetaÊÇÖ»¶Á´æÈ¡Æ÷ÊôĞÔ£¨Ö»ÓĞgetter£©
+    get theta(){return Math.atan2(this.y,this.x);}
+};
+console.log('x:'+p.x+',y:'+p.y+',r:'+p.r);
+p.r=p.r*10;
+console.log('x:'+p.x+',y:'+p.y+',r:'+p.r);
+
+//¶ÔÏóµÄÈı¸öÊôĞÔ
+//  Ô­ĞÍÊôĞÔprototype
+//Í¨¹ı¶ÔÏóÖ±½ÓÁ¿´´½¨µÄ¶ÔÏó£¬prototype=Object.prototype£»
+//Í¨¹ınew´´½¨µÄ¶ÔÏó£¬prototype=¹¹Ôìº¯ÊıµÄprototype
+//Í¨¹ıObject.create()´´½¨µÄ¶ÔÏó£¬prototype=µÚÒ»¸ö²ÎÊı
+var p={x:1};
+var o=Object.create(p);
+console.log(p.isPrototypeOf(o));//true
+console.log(Object.prototype.isPrototypeOf(o));
+
+//  ÀàÊôĞÔ
+function classof(o){
+    if(o==null){
+        return 'Null';
+    }
+    if(o==undefined){
+        return undefined;
+    }
+    //ObjectµÄtoString·½·¨·µ»ØÈçÏÂ¸ñÊ½×Ö·û´®£º[object Class]
+    return Object.prototype.toString.call(o).slice(8,-1);
+}
+console.log(classof(null));//Null
+console.log(classof(123));//Number
+console.log(classof(''));//String
+console.log(classof(false));//Boolean
+console.log(classof({}));//Object
+console.log(classof([]));//Array
+console.log(classof(/./));//RegExp
+console.log(classof(new Date()));//Date
+console.log(classof(window));//Window
+function t(){};
+console.log(classof(t));//Function
+console.log(new t());//Object
+
+//  ¿ÉÀ©Õ¹ĞÔ£¨ÊÇ·ñ¿ÉÒÔ¸ø¶ÔÏóÌí¼ÓĞÂÊôĞÔ£©
+var o={x:1};
+console.log(Object.isExtensible(o));
+Object.preventExtensions(o);
+console.log(Object.isExtensible(o));
+o.y=123;//²»±¨´í£¬µ«²»»áÌí¼ÓÊôĞÔy
+console.log(o.y);//undefined
+//  ·â±Õ
+console.log(Object.isSealed(o));//¼ì²â¶ÔÏóÊÇ·ñ·â±Õ£¨·â±Õ£¬ÒâÎ¶×Å²»ÄÜÔöÉ¾×ÔÓĞÊôĞÔ£©
+Object.seal(o);//ÉèÖÃÎª·â±Õ¶ÔÏó
+delete o.x;//²»»áÉ¾³ıxÊôĞÔ
+console.log(o.x);//1
+console.log(Object.isSealed(o));//true
+//  ¶³½á
+console.log(Object.isFrozen(o));//fasle
+Object.freeze(o);
+o.x=100;//²»»áÉúĞ§
+console.log(o.x);//1
+console.log(Object.isFrozen(o));//true
+
+//¶ÔÏó·½·¨
+//toString£¬Ä¬ÈÏÊä³ö:[object Object]
+console.log({x:1,y:89}.toString());
+//valueOf£¬»ñÈ¡Ô­Ê¼Öµ
+console.log(new Date().valueOf());//1460192235664
