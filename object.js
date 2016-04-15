@@ -1,27 +1,27 @@
-//¶ÔÏó
+//å¯¹è±¡
 var book={
     'title':'javascript',
     'for':'all audiences',
     author:{
-        firstname:'david',//ÕâÀïµÄÊôĞÔÃ»ÓĞÒıºÅ
+        firstname:'david',//è¿™é‡Œçš„å±æ€§æ²¡æœ‰å¼•å·
         surname:'flanagan'
     }  
 };
 console.log(book);
 
-//±ÜÃâÊôĞÔ·ÃÎÊ´íÎó
-var len=book&&book.subtitle&&book.subtitle.length;//»ñÈ¡book¶ÔÏósubtitleÊôĞÔ£¨²»´æÔÚ£©µÄ³¤¶È
+//é¿å…å±æ€§è®¿é—®é”™è¯¯
+var len=book&&book.subtitle&&book.subtitle.length;//è·å–bookå¯¹è±¡subtitleå±æ€§ï¼ˆä¸å­˜åœ¨ï¼‰çš„é•¿åº¦
 console.log(len);
 len=book&&book.title&&book.title.length;
 console.log(len);
 
-//Ô­ĞÍ
-//Object.prototype£¨new Object()£©,Array.prototype£¨new Array()£©,Date.prototype£¨Date.prototype£©
+//åŸå‹
+//Object.prototypeï¼ˆnew Object()ï¼‰,Array.prototypeï¼ˆnew Array()ï¼‰,Date.prototypeï¼ˆDate.prototypeï¼‰
 console.log(Object.prototype);
 console.log(Array.prototype);
 console.log(Date.prototype);
 
-//ÊôĞÔ
+//å±æ€§
 var author=book.author;
 console.log(author);
 console.log(book["title"]);
@@ -29,17 +29,17 @@ book.for='zpf';
 book['title']='C#';
 console.log(book);
 
-//js¶ÔÏó¶¼ÊÇ¹ØÁªÊı×é£¨ÓÖÃûÉ¢ÁĞ¡¢Ó³Éä»ò×Öµä£©
+//jså¯¹è±¡éƒ½æ˜¯å…³è”æ•°ç»„ï¼ˆåˆåæ•£åˆ—ã€æ˜ å°„æˆ–å­—å…¸ï¼‰
 var person={
-    addr0:'¼ÃÄÏ',
-    addr1:'ºÊÔó',
-    addr2:'¼ÃÄş'
+    addr0:'æµå—',
+    addr1:'èæ³½',
+    addr2:'æµå®'
 };
 for(var i=0;i<3;i++){
     console.log(person['addr'+i]);
 }
 
-//¼Ì³Ğ
+//ç»§æ‰¿
 // inherit() returns a newly created object that inherits properties from the
 // prototype object p.  It uses the ECMAScript 5 function Object.create() if
 // it is defined, and otherwise falls back to an older technique.
@@ -53,48 +53,48 @@ function inherit(p) {
     f.prototype = p;                  // Set its prototype property to p.
     return new f();                   // Use f() to create an "heir" of p.
 }
-//¸¸¶ÔÏóºóÆÚ¶¯Ì¬Ìí¼ÓµÄÊôĞÔ£¬ÔÚ×Ó¶ÔÏóÖĞÒÀÈ»¼Ì³Ğ£»×Ó¶ÔÏóµÄÊôĞÔ¸³Öµ²Ù×÷²»»áÓ°ÏìÔ­ĞÍÁ´
-var o={x:1};//³õÊ¼ÊôĞÔx
-o.a=9;//¶¯Ì¬Ìí¼ÓµÄÊôĞÔa
+//çˆ¶å¯¹è±¡åæœŸåŠ¨æ€æ·»åŠ çš„å±æ€§ï¼Œåœ¨å­å¯¹è±¡ä¸­ä¾ç„¶ç»§æ‰¿ï¼›å­å¯¹è±¡çš„å±æ€§èµ‹å€¼æ“ä½œä¸ä¼šå½±å“åŸå‹é“¾
+var o={x:1};//åˆå§‹å±æ€§x
+o.a=9;//åŠ¨æ€æ·»åŠ çš„å±æ€§a
 var p=inherit(o);
 p.y=2;
-o.b=90;//p¼Ì³ĞoÖ®ºó£¬oÓÖÌí¼ÓµÄÊôĞÔ£¬pÒÀÈ»¿ÉÒÔ·ÃÎÊ
+o.b=90;//pç»§æ‰¿oä¹‹åï¼Œoåˆæ·»åŠ çš„å±æ€§ï¼Œpä¾ç„¶å¯ä»¥è®¿é—®
 console.log('p:'+p);
 console.log('p:x,'+p.x+';a,'+p.a+';b,'+p.b);
-p.b=9;//¸²¸ÇÊôĞÔb£¬oµÄbÊôĞÔ²¢Ã»ÓĞ¸Ä±ä
-console.log('bµÄÖµ£¬p:'+p.b+',o:'+o.b);
-delete p.b;//É¾³ıÁËpµÄbÊôĞÔ£¬·ÃÎÊp.bÊ±½«´ÓÔ­ĞÍÁ´ÖĞ²éÕÒ£¨¼´o.b£©
-console.log('bµÄÖµ£¬p:'+p.b+',o:'+o.b);
+p.b=9;//è¦†ç›–å±æ€§bï¼Œoçš„bå±æ€§å¹¶æ²¡æœ‰æ”¹å˜
+console.log('bçš„å€¼ï¼Œp:'+p.b+',o:'+o.b);
+delete p.b;//åˆ é™¤äº†pçš„bå±æ€§ï¼Œè®¿é—®p.bæ—¶å°†ä»åŸå‹é“¾ä¸­æŸ¥æ‰¾ï¼ˆå³o.bï¼‰
+console.log('bçš„å€¼ï¼Œp:'+p.b+',o:'+o.b);
 
-//É¾³ıÊôĞÔ
-//deleteÔËËã·ûÖ»ÄÜÉ¾³ı×ÔÓĞÊôĞÔ£¬²»ÄÜÉ¾³ı¼Ì³ĞÊôĞÔ£¨ÒªÉ¾³ıµÄ¼Ì³ĞÊôĞÔ±ØĞë´Ó¶¨ÒåÕâ¸öÊôĞÔµÄÔ­ĞÍ¶ÔÏóÉÏÉ¾³ıËü£¬¶øÕâ½«Ó°ÏìËùÓĞ¼Ì³Ğ×ÔÕâ¸öÔ­ĞÍµÄ¶ÔÏó£©
+//åˆ é™¤å±æ€§
+//deleteè¿ç®—ç¬¦åªèƒ½åˆ é™¤è‡ªæœ‰å±æ€§ï¼Œä¸èƒ½åˆ é™¤ç»§æ‰¿å±æ€§ï¼ˆè¦åˆ é™¤çš„ç»§æ‰¿å±æ€§å¿…é¡»ä»å®šä¹‰è¿™ä¸ªå±æ€§çš„åŸå‹å¯¹è±¡ä¸Šåˆ é™¤å®ƒï¼Œè€Œè¿™å°†å½±å“æ‰€æœ‰ç»§æ‰¿è‡ªè¿™ä¸ªåŸå‹çš„å¯¹è±¡ï¼‰
 delete o.x;
 console.log(p.x);//undefined
-//deleteÖ»ÄÜ¶Ï¿ªÊôĞÔºÍËŞÖ÷¶ÔÏóµÄÁªÏµ£¬¶ø²»»á²Ù×÷ÊôĞÔµÄÊôĞÔ£»
-//ÕâÓĞ¿ÉÄÜÔì³ÉÄÚ´æĞ¹Â©£¬ËùÒÔÏú»Ù¶ÔÏóÊ±£¬Òª±éÀúÊôĞÔµÄÊôĞÔ£¬ÒÀ´ÎÉ¾³ı
+//deleteåªèƒ½æ–­å¼€å±æ€§å’Œå®¿ä¸»å¯¹è±¡çš„è”ç³»ï¼Œè€Œä¸ä¼šæ“ä½œå±æ€§çš„å±æ€§ï¼›
+//è¿™æœ‰å¯èƒ½é€ æˆå†…å­˜æ³„æ¼ï¼Œæ‰€ä»¥é”€æ¯å¯¹è±¡æ—¶ï¼Œè¦éå†å±æ€§çš„å±æ€§ï¼Œä¾æ¬¡åˆ é™¤
 var author=book.author;
 delete book.author;
 console.log(author);
 
-//¼ì²âÊôĞÔ
+//æ£€æµ‹å±æ€§
 var o={x:120};
 console.log('x' in o);//true
-console.log('toString' in o);//true(toStringÊôĞÔ¼Ì³Ğ×ÔObject)
-//¼ì²âÊÇ·ñÊÇ¶ÔÏóµÄ×ÔÓĞÊôĞÔ
+console.log('toString' in o);//true(toStringå±æ€§ç»§æ‰¿è‡ªObject)
+//æ£€æµ‹æ˜¯å¦æ˜¯å¯¹è±¡çš„è‡ªæœ‰å±æ€§
 console.log(o.hasOwnProperty('x'));//true
 console.log(o.hasOwnProperty('toString'));//false
 
-//Ã¶¾ÙÊôĞÔ
+//æšä¸¾å±æ€§
 var o={x:1,y:89,z:8909};
 for(p in o){
-    console.log(p);//´òÓ¡ÊôĞÔÃû³Æ
+    console.log(p);//æ‰“å°å±æ€§åç§°
 }
 
-//´æÈ¡Æ÷getter¡¢setter£¨¿ÉÒÔ¼Ì³Ğ£©
+//å­˜å–å™¨getterã€setterï¼ˆå¯ä»¥ç»§æ‰¿ï¼‰
 var p={
     x:1.0,
     y:2.0,
-    //rÊÇ¿É¶ÁĞ´µÄ´æÈ¡Æ÷ÊôĞÔ£¨Í¬Ê±ÓĞgetterºÍsetter£©
+    //ræ˜¯å¯è¯»å†™çš„å­˜å–å™¨å±æ€§ï¼ˆåŒæ—¶æœ‰getterå’Œsetterï¼‰
     get r() {
         return Math.sqrt(this.x*this.x+this.y*this.y);
     },
@@ -104,24 +104,24 @@ var p={
         this.x*=ratio;
         this.y*=ratio;
     },
-    //thetaÊÇÖ»¶Á´æÈ¡Æ÷ÊôĞÔ£¨Ö»ÓĞgetter£©
+    //thetaæ˜¯åªè¯»å­˜å–å™¨å±æ€§ï¼ˆåªæœ‰getterï¼‰
     get theta(){return Math.atan2(this.y,this.x);}
 };
 console.log('x:'+p.x+',y:'+p.y+',r:'+p.r);
 p.r=p.r*10;
 console.log('x:'+p.x+',y:'+p.y+',r:'+p.r);
 
-//¶ÔÏóµÄÈı¸öÊôĞÔ
-//  Ô­ĞÍÊôĞÔprototype
-//Í¨¹ı¶ÔÏóÖ±½ÓÁ¿´´½¨µÄ¶ÔÏó£¬prototype=Object.prototype£»
-//Í¨¹ınew´´½¨µÄ¶ÔÏó£¬prototype=¹¹Ôìº¯ÊıµÄprototype
-//Í¨¹ıObject.create()´´½¨µÄ¶ÔÏó£¬prototype=µÚÒ»¸ö²ÎÊı
+//å¯¹è±¡çš„ä¸‰ä¸ªå±æ€§
+//  åŸå‹å±æ€§prototype
+//é€šè¿‡å¯¹è±¡ç›´æ¥é‡åˆ›å»ºçš„å¯¹è±¡ï¼Œprototype=Object.prototypeï¼›
+//é€šè¿‡newåˆ›å»ºçš„å¯¹è±¡ï¼Œprototype=æ„é€ å‡½æ•°çš„prototype
+//é€šè¿‡Object.create()åˆ›å»ºçš„å¯¹è±¡ï¼Œprototype=ç¬¬ä¸€ä¸ªå‚æ•°
 var p={x:1};
 var o=Object.create(p);
 console.log(p.isPrototypeOf(o));//true
 console.log(Object.prototype.isPrototypeOf(o));
 
-//  ÀàÊôĞÔ
+//  ç±»å±æ€§
 function classof(o){
     if(o==null){
         return 'Null';
@@ -129,7 +129,7 @@ function classof(o){
     if(o==undefined){
         return undefined;
     }
-    //ObjectµÄtoString·½·¨·µ»ØÈçÏÂ¸ñÊ½×Ö·û´®£º[object Class]
+    //Objectçš„toStringæ–¹æ³•è¿”å›å¦‚ä¸‹æ ¼å¼å­—ç¬¦ä¸²ï¼š[object Class]
     return Object.prototype.toString.call(o).slice(8,-1);
 }
 console.log(classof(null));//Null
@@ -145,28 +145,28 @@ function t(){};
 console.log(classof(t));//Function
 console.log(new t());//Object
 
-//  ¿ÉÀ©Õ¹ĞÔ£¨ÊÇ·ñ¿ÉÒÔ¸ø¶ÔÏóÌí¼ÓĞÂÊôĞÔ£©
+//  å¯æ‰©å±•æ€§ï¼ˆæ˜¯å¦å¯ä»¥ç»™å¯¹è±¡æ·»åŠ æ–°å±æ€§ï¼‰
 var o={x:1};
 console.log(Object.isExtensible(o));
 Object.preventExtensions(o);
 console.log(Object.isExtensible(o));
-o.y=123;//²»±¨´í£¬µ«²»»áÌí¼ÓÊôĞÔy
+o.y=123;//ä¸æŠ¥é”™ï¼Œä½†ä¸ä¼šæ·»åŠ å±æ€§y
 console.log(o.y);//undefined
-//  ·â±Õ
-console.log(Object.isSealed(o));//¼ì²â¶ÔÏóÊÇ·ñ·â±Õ£¨·â±Õ£¬ÒâÎ¶×Å²»ÄÜÔöÉ¾×ÔÓĞÊôĞÔ£©
-Object.seal(o);//ÉèÖÃÎª·â±Õ¶ÔÏó
-delete o.x;//²»»áÉ¾³ıxÊôĞÔ
+//  å°é—­
+console.log(Object.isSealed(o));//æ£€æµ‹å¯¹è±¡æ˜¯å¦å°é—­ï¼ˆå°é—­ï¼Œæ„å‘³ç€ä¸èƒ½å¢åˆ è‡ªæœ‰å±æ€§ï¼‰
+Object.seal(o);//è®¾ç½®ä¸ºå°é—­å¯¹è±¡
+delete o.x;//ä¸ä¼šåˆ é™¤xå±æ€§
 console.log(o.x);//1
 console.log(Object.isSealed(o));//true
-//  ¶³½á
+//  å†»ç»“
 console.log(Object.isFrozen(o));//fasle
 Object.freeze(o);
-o.x=100;//²»»áÉúĞ§
+o.x=100;//ä¸ä¼šç”Ÿæ•ˆ
 console.log(o.x);//1
 console.log(Object.isFrozen(o));//true
 
-//¶ÔÏó·½·¨
-//toString£¬Ä¬ÈÏÊä³ö:[object Object]
+//å¯¹è±¡æ–¹æ³•
+//toStringï¼Œé»˜è®¤è¾“å‡º:[object Object]
 console.log({x:1,y:89}.toString());
-//valueOf£¬»ñÈ¡Ô­Ê¼Öµ
+//valueOfï¼Œè·å–åŸå§‹å€¼
 console.log(new Date().valueOf());//1460192235664
