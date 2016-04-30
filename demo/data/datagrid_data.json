@@ -1,0 +1,17 @@
+[{
+    "itemid":"001",
+    "productid":"FI-SW-01",
+    "listprice":"45.6",
+    "unitcost":"1008",
+    "attr1":"asasfdfk;sld",
+    "status":"P"
+},
+{
+    "itemid":"002",
+    "productid":"FL-DSH-01",
+    "listprice":"5.6",
+    "unitcost":"10.8",
+    "attr1":"哈哈",
+    "status":""
+}
+]
