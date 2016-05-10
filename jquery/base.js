@@ -55,7 +55,7 @@
 // }
 
 // 打开弹出窗口
-function showPopWindow(url, title, width, height, isModal, iconCls, funLoadCallback, funSubmitCallback) {
+function showPopWindow(url, width, height, isModal, funLoadCallback, funSubmitCallback) {
 
     isModal = isModal == true ? true : false;
     var id = "_tmpWin_" + Math.floor(Math.random() * 10000 + 1);
@@ -63,23 +63,24 @@ function showPopWindow(url, title, width, height, isModal, iconCls, funLoadCallb
 
     win.addClass("myOpenWindow");
     win.appendTo($("body"));
-
     $(win).dialog({
-        title: title,
+        title: "",
         href: url,
         width: width,
         height: height,
         modal: isModal,
-        iconCls: iconCls,
+        iconCls: null,
         buttons: [{
             text: '确定',
             iconCls: 'icon-ok',
             width: 75,
             handler: function() {
-                var b = funSubmitCallback();
-                if (b != false) {
-                    $(win).dialog("close");
+                var selData = null;
+                var row = $('#grid').datagrid('getSelected');
+                if (funSubmitCallback) {
+                    funSubmitCallback(row);
                 }
+                $(win).dialog("close");
             }
         }, {
                 text: '取消',
@@ -93,7 +94,7 @@ function showPopWindow(url, title, width, height, isModal, iconCls, funLoadCallb
             $(win).dialog("destroy");
         },
         onLoad: function() {
-            funLoadCallback();
+            funLoadCallback($('#grid'));
             $("#" + id).next().children("a").first().focus();
             $(win).keydown(function(event) {
                 if (event.keyCode == 13) {
